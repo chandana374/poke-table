@@ -11,7 +11,7 @@ interface Props {
 const PokemonModal: React.FC<Props> = ({ pokemon, onClose }) => {
   return (
     /* backdrop */
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+    <div className="fixed inset-0 z-60 flex items-center justify-center bg-black/70 backdrop-blur-sm">
       {/* dialog */}
       <div className="relative w-[90%] max-w-md rounded-2xl
                       bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900
