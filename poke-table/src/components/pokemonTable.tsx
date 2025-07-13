@@ -19,12 +19,11 @@ interface Props {
   searchName: string;
 }
 
-
-export default function PokemonTable({
+const PokemonTable: React.FC<Props> = ({
   pokemonList,
   currentPage,
   searchName,
-}: Props) {
+}) => {
   /* ------------------------------------------------------------------ */
   /* STATE & ROUTER */
   /* ------------------------------------------------------------------ */
@@ -44,7 +43,7 @@ export default function PokemonTable({
       if (!res.ok) throw new Error("not found");
       setSelectedPokemon(await res.json());
     } catch {
-      alert("Failed to fetch Pokemon details.");
+      alert("Failed to fetch Pokémon details.");
     }
   };
 
@@ -103,7 +102,7 @@ export default function PokemonTable({
   });
 
   /* ------------------------------------------------------------------ */
-  /* HANDLERS: pagination & search (update URL → triggers SSR refresh) */
+  /* HANDLERS: pagination & search */
   /* ------------------------------------------------------------------ */
   const pushQuery = (params: URLSearchParams) =>
     router.push(`/?${params.toString()}`);
@@ -134,7 +133,7 @@ export default function PokemonTable({
         <input
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-          placeholder="Search Pokemon by name..."
+          placeholder="Search Pokémon by name..."
           className="flex-1 rounded-full border-2 border-gray-700 bg-gray-800 px-5 py-3 font-bold text-lg text-white placeholder-gray-500
                      focus:outline-none focus:ring-4 focus:ring-yellow-500 transition shadow-sm"
         />
@@ -170,7 +169,7 @@ export default function PokemonTable({
                   colSpan={3}
                   className="text-center py-10 italic text-gray-400 text-lg"
                 >
-                  No Pokemon found
+                  No Pokémon found
                 </td>
               </tr>
             )}
@@ -182,10 +181,7 @@ export default function PokemonTable({
               >
                 {row.getVisibleCells().map((cell) => (
                   <td key={cell.id} className="px-6 py-4 text-center">
-                    {flexRender(
-                      cell.column.columnDef.cell,
-                      cell.getContext()
-                    )}
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 ))}
               </tr>
@@ -224,4 +220,6 @@ export default function PokemonTable({
       )}
     </div>
   );
-}
+};
+
+export default PokemonTable;

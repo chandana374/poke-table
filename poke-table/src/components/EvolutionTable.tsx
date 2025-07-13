@@ -13,13 +13,10 @@ import type { EvolutionTrigger } from "../../../types/pokemon";
 
 interface Props {
   triggers: EvolutionTrigger[];
-  currentPage: number; // page for this table (query param: evoPage)
+  currentPage: number; // query param: evoPage
 }
 
-export default function EvolutionTriggerTable({
-  triggers,
-  currentPage,
-}: Props) {
+const EvolutionTriggerTable: React.FC<Props> = ({ triggers, currentPage }) => {
   /* -------------------------------------------------- */
   /* TanStack setup                                     */
   /* -------------------------------------------------- */
@@ -45,7 +42,7 @@ export default function EvolutionTriggerTable({
   });
 
   /* -------------------------------------------------- */
-  /* Pagination handlers (updates ?evoPage=)            */
+  /* Pagination handlers                                */
   /* -------------------------------------------------- */
   const router = useRouter();
   const handlePagination = (newPage: number) => {
@@ -99,7 +96,10 @@ export default function EvolutionTriggerTable({
               >
                 {row.getVisibleCells().map((cell) => (
                   <td key={cell.id} className="px-6 py-4">
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    {flexRender(
+                      cell.column.columnDef.cell,
+                      cell.getContext()
+                    )}
                   </td>
                 ))}
               </tr>
@@ -127,4 +127,6 @@ export default function EvolutionTriggerTable({
       </div>
     </div>
   );
-}
+};
+
+export default EvolutionTriggerTable;

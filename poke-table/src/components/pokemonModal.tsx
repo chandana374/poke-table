@@ -8,7 +8,7 @@ interface Props {
   onClose: () => void;
 }
 
-export default function PokemonModal({ pokemon, onClose }: Props) {
+const PokemonModal: React.FC<Props> = ({ pokemon, onClose }) => {
   return (
     /* backdrop */
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
@@ -91,4 +91,6 @@ export default function PokemonModal({ pokemon, onClose }: Props) {
       </div>
     </div>
   );
-}
+};
+
+export default PokemonModal;
