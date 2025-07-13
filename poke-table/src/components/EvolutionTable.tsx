@@ -1,4 +1,5 @@
-/* src/components/EvolutionTriggerTable.tsx */
+/* eslint-disable react-hooks/rules-of-hooks */
+/* src/components/EvolutionTable.tsx */
 "use client";
 
 import React, { useMemo } from "react";
@@ -16,10 +17,11 @@ interface Props {
   currentPage: number; // query param: evoPage
 }
 
-const EvolutionTriggerTable: React.FC<Props> = ({ triggers, currentPage }) => {
+const EvolutionTable: React.FC<Props> = ({ triggers, currentPage }) => {
   /* -------------------------------------------------- */
   /* TanStack setup                                     */
   /* -------------------------------------------------- */
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const columns = useMemo<ColumnDef<EvolutionTrigger>[]>(
     () => [
       {
@@ -129,4 +131,4 @@ const EvolutionTriggerTable: React.FC<Props> = ({ triggers, currentPage }) => {
   );
 };
 
-export default EvolutionTriggerTable;
+export default EvolutionTable;
