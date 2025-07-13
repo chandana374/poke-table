@@ -22,3 +22,8 @@ export interface PokemonDetails {
     is_hidden: boolean;
   }[];
 }
+// src/types/pokemon.ts (add if missing)
+export interface EvolutionTrigger {
+  name: string;
+  url: string;
+}

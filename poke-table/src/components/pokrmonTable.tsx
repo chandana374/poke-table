@@ -44,7 +44,7 @@ export default function PokemonTable({
       if (!res.ok) throw new Error("not found");
       setSelectedPokemon(await res.json());
     } catch {
-      alert("Failed to fetch Pokémon details.");
+      alert("Failed to fetch Pokemon details.");
     }
   };
 
@@ -134,7 +134,7 @@ export default function PokemonTable({
         <input
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-          placeholder="Search Pokémon by name..."
+          placeholder="Search Pokemon by name..."
           className="flex-1 rounded-full border-2 border-gray-700 bg-gray-800 px-5 py-3 font-bold text-lg text-white placeholder-gray-500
                      focus:outline-none focus:ring-4 focus:ring-yellow-500 transition shadow-sm"
         />
@@ -170,7 +170,7 @@ export default function PokemonTable({
                   colSpan={3}
                   className="text-center py-10 italic text-gray-400 text-lg"
                 >
-                  No Pokémon found
+                  No Pokemon found
                 </td>
               </tr>
             )}
